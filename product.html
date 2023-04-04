@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+		<title>Add Product Page</title>
+
+		<!-- Google font -->
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+		<!-- Font Awesome Icon -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<!-- Custom stlylesheet -->
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+
+
+
+
+		
+
+
+    </head>
+	<body>
+		<!-- HEADER -->
+		<!-- HEADER -->
+		<header>
+			<!-- TOP HEADER -->
+			<div id="top-header">
+				<div class="container">
+					<ul class="header-links pull-left">
+						<li><a href="#"><i class="fa fa-phone"></i> +918789628702</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i>amitksingh80833@gmail.com</a></li>
+						<li><a href="#"><i class="fa fa-map-marker"></i>Sarjapur,Banglore</a></li>
+					</ul>
+					<ul class="header-links pull-right">
+						<button type="button"  id:#delete-product-btn >Save</button>
+						<button type="button" onclick="location.href='index.html'" id:#delete-product-btn>Cancel</button>
+					</ul>
+				</div>
+			</div>
+			<!-- /TOP HEADER -->
+			<!-- MAIN HEADER -->
+			<div id="header">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						
+
+					
+						
+					</div>
+					<!-- row -->
+				</div>
+				<!-- container -->
+			</div>
+			<!-- /MAIN HEADER -->
+		</header>
+		<!-- /HEADER -->
+
+
+			<div class="ProductForm" id="#product_form">
+				<form action="/action_page.php">
+				  <div class="row">
+					<div class="col-25">
+					  <label for="sku">SKU</label>
+					</div>
+					<div class="col-75">
+					  <input type="text" id="#sku" name="SKU"   required>
+					</div>
+				  </div>
+				  <div class="row">
+					<div class="col-25">
+					  <label for="name">Name</label>
+					</div>
+					<div class="col-75">
+					  <input type="text" id="#name" name="Productname"  required>
+					</div>
+				  </div>
+				  <div class="row">
+					<div class="col-25">
+					  <label for="price">Price($)</label>
+					</div>
+					<div class="col-75">
+					  <input type="text" id="#price" name="Price" required>
+					</div>
+				</div>
+					<div class="row">
+						<div class="col-25">
+						  <label for="ProductType">ProductType</label>
+						</div>
+						<div class="col-75">
+						  <select id="#ProductType"  name="productType" onchange="showFields()">
+							<option value="">Select Product Type</option>
+							<option value="DVD" id="#DVD">DVD</option>
+							<option value="Furniture" id="#Furniture">Furniture</option>
+							<option value="Book" id="#Book">Book</option>
+						 </select>
+					    </div>
+						 
+						<div id="furniture" class="productField" style="display: none;">
+							<div class="row">
+								 <div class="col-25">
+							      <label for="Furniture">Height:</label>
+						          </div>
+						          <div class="col-75">
+							         <input type="text" id="#height" name="Height"><br>
+						            </div>
+					            </div>
+								<div class="row">
+									<div class="col-25">
+							           <label for="Furniture">width:</label>
+						            </div>
+									<div class="col-75">
+							          <input type="text" id="#width" name="width"><br>
+						            </div>
+					            </div>
+								<div class="row">
+									  <div class="col-25">
+							            <label for="Furniture">length:</label>
+									  </div>
+									  <div class="col-75">
+							            <input type="text" id="#length" name="length"><br>
+						             </div>
+					                </div>
+						</div>
+				
+						<div id="dvd" class="productField" style="display: none;">
+							<div class="row">
+								<div class="col-25">
+							      <label for="DVD">Size(MB):</label>
+						        </div>
+								<div class="col-75">
+							      <input type="text" id="#size" name="size"><br>
+						     </div>
+					     </div>
+						</div>
+				
+						<div id="book" class="productField" style="display: none;">
+							<div class="row">
+								<div class="col-25">
+							      <label for="Weight">Weight(KG):</label>
+						      </div>
+						       <div class="col-75">
+							    <input type="text" id="#weight" name="Weight"><br>
+						       </div>
+					      </div>
+						</div>
+					  </div>
+			  
+			  </div>
+			   </div>   
+			  
+			  
+			  </div>
+			  </div>
+				  <div class="row">
+					<input type="submit" value="Submit">
+				  </div>
+				</form>
+				<script>
+					function validateForm() {
+						var name = document.forms[0]["sku"].value;
+						var email = document.forms[0]["name"].value;
+						var message = document.forms[0]["price"].value;
+						if (sku == "" || name == "" || price == "") {
+							alert("Please fill out all required fields.");
+							return false;
+						}
+					}
+
+					function showFields() {
+			var selectBox = document.getElementById("#ProductType");
+			var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+			var fields = document.getElementsByClassName("productField");
+
+			for (var i = 0; i < fields.length; i++) {
+				fields[i].style.display = "none";
+			}
+
+			if (selectedValue === "Furniture") {
+				document.getElementById("furniture").style.display = "block";
+			} else if (selectedValue === "DVD") {
+				document.getElementById("dvd").style.display = "block";
+			} else if (selectedValue === "Book") {
+				document.getElementById("book").style.display = "block";
+			}
+		}
+				</script>
+				
+			  </div>
+
+			 
+				  
+			  </body>
+			  </html>
+				
+ 		
+
+ 		
+
+ 		
+
+		
+
+    
+	
+						
+
+
+
+		
+		
